@@ -126,9 +126,6 @@ uint8_t usart1_read(void)
 	return USART1->DR;
 }
 
-/*
- * USART2 code not tested. May contain bugs.
- */
 void usart2_tx_init(uint32_t buad_rate)
 {
 	/*
