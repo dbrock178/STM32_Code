@@ -2,18 +2,11 @@
 
 #define DEVICE_ADDRESS		(0x50) // Change if necessary Pins A0-A2=0
 
-static GPIO_TypeDef *_gpio;
-static uint8_t _clk_pin,_sda_pin;
-
 // Developer is responsible for setting clock bus access for GPIOx
 // beforehand
 void micro_eeprom_init(GPIO_TypeDef *gpio,uint8_t clk_pin, uint8_t sda_pin)
 {
-	_gpio=gpio;
-	_clk_pin=clk_pin;
-	_sda_pin=sda_pin;
-
-	i2c_init(_gpio, _clk_pin, _sda_pin);
+	i2c_init(gpio, clk_pin, sda_pin);
 }
 
 uint8_t micro_eeprom_byte_write(uint16_t address,uint8_t data)
