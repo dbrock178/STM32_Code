@@ -120,6 +120,15 @@ void usart1_write(uint8_t ch)
 	USART1->DR = ch;
 }
 
+void usart1_write_string(char *str)
+{
+	while(*str)
+	{
+		usart1_write(*str);
+		str++;
+	}
+}
+
 uint8_t usart1_read(void)
 {
 	while(!(USART1->SR & SR_RXNE));
@@ -231,6 +240,15 @@ void usart2_write(uint8_t ch)
 	USART2->DR = ch;
 }
 
+void usart2_write_string(char *str)
+{
+	while(*str)
+	{
+		usart2_write(*str);
+		str++;
+	}
+}
+
 uint8_t usart2_read(void)
 {
 	while(!(USART2->SR & SR_RXNE));
@@ -340,6 +358,15 @@ void usart6_write(uint8_t ch)
 
 	// Write to transmit data register
 	USART6->DR = ch;
+}
+
+void usart6_write_string(char *str)
+{
+	while(*str)
+	{
+		usart6_write(*str);
+		str++;
+	}
 }
 
 uint8_t usart6_read(void)
